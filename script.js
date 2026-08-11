@@ -1,10 +1,6 @@
-// Main logic
-let humanScore = 0;
-let computerScore = 0;
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+playGame()
+
 
 // Randomly chooses rock, paper or scissors string
 function getComputerChoice() {
@@ -22,46 +18,75 @@ function getHumanChoice() {
     return humanChoice;
 }
 
+// Plays 5 rounds
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    let humanSelection
+    let computerSelection
+
+    for (i = 1; i <= 5; i++) {
+        humanSelection = getHumanChoice();
+        computerSelection = getComputerChoice();
+        playRound(humanSelection, computerSelection);
+    }
+    determineWinner();
+
+// Determines a winner based on the highest score
+    function determineWinner() {
+        if (humanScore > computerScore) {
+            console.log("Congrats! You beat me.");
+            console.log("If you were curious, you had " + humanScore + " point(s), and I had " + computerScore + " point(s).");
+        }
+        else if (humanScore < computerScore) {
+            console.log("Ha! I beat you!");
+            console.log("If you were curious, you had " + humanScore + " point(s)and I had " + computerScore + " point(s).");          
+        }
+        else {
+            console.log("It seems we have tied!")
+        }
+
+    }
+
 // Plays a round and gives points and a little message based on whoever won
-function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
-    if (humanChoice === "rock" && computerChoice === "rock") {
-        console.log("Rock and rock is a tie!");
+    function playRound(humanChoice, computerChoice) {
+        humanChoice = humanChoice.toLowerCase();
+        if (humanChoice === "rock" && computerChoice === "rock") {
+            console.log("Rock and rock is a tie!");
+        }
+        else if (humanChoice === "paper" && computerChoice === "paper") {
+            console.log("Paper and paper is a tie!");
+        }
+        else if (humanChoice === "scissors" && computerChoice === "scissors") {
+            console.log("Scissors and scissors is a tie!");
+        }
+        else if (humanChoice === "rock" && computerChoice === "paper") {
+            console.log("Point for me! Paper covers rock.");
+            computerScore += 1;
+        }
+        else if (humanChoice === "rock" && computerChoice === "scissors") {
+            console.log("Oh man, point for you. Rock smashes scissors!");
+            humanScore += 1;
+        }
+        else if (humanChoice === "paper" && computerChoice === "rock") {
+            console.log("Point for you! Paper covers rock.");
+            humanScore += 1;
+        }
+        else if (humanChoice === "paper" && computerChoice === "scissors") {
+            console.log("My point, scissors cut paper!");
+            computerScore += 1;
+        }
+        else if (humanChoice === "scissors" && computerChoice === "rock") {
+            console.log("That's a point for me! Rock smashes scissors.");
+            computerScore += 1;
+        }
+        else if (humanChoice === "scissors" && computerChoice === "paper") {
+            console.log("Thats a point for you! Scissors cut paper.");
+            humanScore += 1;
+        }
+        else {
+            console.log("I think something went wrong, let's just try again.");
+        }
+        return;
     }
-    else if (humanChoice === "paper" && computerChoice === "paper") {
-        console.log("Paper and paper is a tie!");
-    }
-    else if (humanChoice === "scissors" && computerChoice === "scissors") {
-        console.log("Scissors and scissors is a tie!");
-    }
-    else if (humanChoice === "rock" && computerChoice === "paper") {
-        console.log("Point for me! Paper covers rock.");
-        computerScore += 1;
-    }
-    else if (humanChoice === "rock" && computerChoice === "scissors") {
-        console.log("Oh man, point for you. Rock smashes scissors!");
-        humanScore += 1;
-    }
-    else if (humanChoice === "paper" && computerChoice === "rock") {
-        console.log("Point for you! Paper covers rock.");
-        humanScore += 1;
-    }
-    else if (humanChoice === "paper" && computerChoice === "scissors") {
-        console.log("My point, scissors cut paper!");
-        computerScore += 1;
-    }
-    else if (humanChoice === "scissors" && computerChoice === "rock") {
-        console.log("That's a point for me! Rock smashes scissors.");
-        computerScore += 1;
-    }
-    else if (humanChoice === "scissors" && computerChoice === "paper") {
-        console.log("Thats a point for you! Scissors cut paper.");
-        humanScore += 1;
-    }
-    else {
-        console.log("I think something went wrong, let's just try again.");
-    }
-    return;
 }
-
-
