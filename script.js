@@ -1,4 +1,9 @@
+// Randomly chooses rock, paper or scissors string
 function getComputerChoice() {
-    let computerChoice = Math.floor(Math.random()*3);
+    let randomNum = Math.floor(Math.random()*3);
+    let computerChoice;
+    if (randomNum === 0) computerChoice = "rock";
+    else if (randomNum === 1) computerChoice = "paper";
+    else computerChoice = "scissors";
     return computerChoice;
 }
