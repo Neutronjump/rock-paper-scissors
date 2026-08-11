@@ -7,3 +7,11 @@ function getComputerChoice() {
     else computerChoice = "scissors";
     return computerChoice;
 }
+
+// Assigns humanChoice to user input
+function getHumanChoice() {
+    let humanChoice = prompt("Please enter either rock, paper, or scissors:");
+    return humanChoice;
+}
+
+
