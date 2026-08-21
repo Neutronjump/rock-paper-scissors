@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+    font-family: Roboto, Lato, Arial, sans-serif;
+}
+
+.container {
+    border: solid rgb(94, 169, 230);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+button {
+    background-color: rgba(94, 169, 230, 0.247);
+    border-radius: 12px;
+    padding: 6px 24px;
+    margin: 8px;
+    flex-basis: 112px; 
+    flex-shrink: 0;
+}
+
+button:hover {
+    background-color:aliceblue;
+}
+.game-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
